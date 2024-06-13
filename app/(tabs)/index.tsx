@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Platform, TextInput, Button, Alert } from 'react-native';
+import { Image, StyleSheet, Platform, TextInput, Button, Alert, Linking } from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
   const [click, setClick] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -37,6 +39,10 @@ export default function HomeScreen() {
     }
   }
 
+  const dashPress = () => {
+    navigation.navigate('route');
+  };
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -65,6 +71,9 @@ export default function HomeScreen() {
           style={styles.input}
         />
         <Button title="Login" onPress={handleSubmit} />
+      </ThemedView>
+      <ThemedView>
+        <Button title="My Dash" onPress={dashPress} />
       </ThemedView>
     </ParallaxScrollView>
   );

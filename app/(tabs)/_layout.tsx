@@ -23,24 +23,6 @@ export default function TabLayout() {
           ),
         }}
       />
-      {/* <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      /> */}
-      {/* <Tabs.Screen
-        name="signin"
-        options={{
-          title: 'signin',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      /> */}
       <Tabs.Screen
         name="signup"
         options={{
@@ -50,7 +32,6 @@ export default function TabLayout() {
           ),
         }}
       />
-
     </Tabs>
   );
 }

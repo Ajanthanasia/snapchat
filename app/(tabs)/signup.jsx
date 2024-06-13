@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
 import { Image, StyleSheet, Platform, TextInput, Button, Alert } from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useNavigation } from '@react-navigation/native';
 
-export default function HomeScreen() {
+function NextPage() {
+    const navigation = useNavigation();
+    navigation.navigate('/');
+}
+
+export default function SignUpScreen() {
+
     const [click, setClick] = useState(false);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -27,45 +33,26 @@ export default function HomeScreen() {
         } else if (password == null || password == "") {
             Alert.alert('Error', 'Password is required');
         } else {
-            const loginIntoSystem = async (data) => {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data),
-                    }).then(response => response.json()).then(responseData => {
-                        console.log(repsonseData);
-                        Alert.alert('Login successful', responseData);
-                    }).catch(error => {
-                        Alert.alert('Login error', error);
-                    });
-                } catch (error) {
-                    console.log(error);
-                }
-            }
-            // const response = await fetch(url, {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(data),
-            // }).then(response => response.json()).then(responseData => {
-            //     Alert.alert('Login successful', responseData);
-            // }).catch(error => {
-            //     Alert.alert('Login error', error);
-            // });
-
-            // axios.post('https://api.example.com/create', data)
-            //     .then(response => {
-            //         console.log(response.data);
-            //         Alert.alert('Login successful', response);
-            //     })
-            //     .catch(error => {
-            //         console.error("Error sending data: ", error);
-            //         Alert.alert('Login error', error);
-            //     })
+            console.log('hi');
+            // navigation.navidate('(tabs)/index', {});
+            // const loginIntoSystem = async (data) => {
+            //     try {
+            //         const response = await fetch(url, {
+            //             method: 'POST',
+            //             headers: {
+            //                 'Content-Type': 'application/json',
+            //             },
+            //             body: JSON.stringify(data),
+            //         }).then(response => response.json()).then(responseData => {
+            //             console.log(repsonseData);
+            //             Alert.alert('Login successful', responseData);
+            //         }).catch(error => {
+            //             Alert.alert('Login error', error);
+            //         });
+            //     } catch (error) {
+            //         console.log(error);
+            //     }
+            // }
         }
     }
 
