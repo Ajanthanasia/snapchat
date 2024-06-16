@@ -1,27 +1,35 @@
 import React from "react";
-import { Image, StyleSheet, Platform, TextInput, Button, Alert, ScrollView } from 'react-native';
+import { Image, StyleSheet, Platform, TextInput, Button, Alert, Linking, View, ScrollView } from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import DashboardLayout from "./layout";
+import { useNavigation } from '@react-navigation/native';
 
-export default function DashboardHome() {
+export default function UserCamera() {
     return (
-        <ScrollView>
+        <ScrollView style={styles.container}>
             <ThemedView style={styles.titleContainer}>
-                <ThemedText type="title">Welcome to SnapChat </ThemedText>
+                <ThemedText type="title">Camera</ThemedText>
             </ThemedView>
-            <DashboardLayout />
         </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#A1CEDC', // Add your desired background color,
+        paddingTop: 50,
+        padding: 10,
+    },
     titleContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         gap: 8,
+        padding: 20,
+        backgroundColor: '#008000',
+        borderRadius: 20,
     },
     stepContainer: {
         gap: 8,

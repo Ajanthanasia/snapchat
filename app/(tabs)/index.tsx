@@ -19,7 +19,6 @@ export default function HomeScreen() {
     } else if (password == null || password == '') {
       Alert.alert('Error', 'Password is required');
     } else {
-
       fetch(url, {
         method: 'POST',
         headers: {
@@ -73,7 +72,10 @@ export default function HomeScreen() {
         <Button title="Login" onPress={handleSubmit} />
       </ThemedView>
       <ThemedView>
-        <Button title="My Dash" onPress={dashPress} />
+        <Button
+          title="User Account"
+          onPress={() => navigation.navigate('user')}
+        />
       </ThemedView>
     </ParallaxScrollView>
   );
